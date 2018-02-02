@@ -224,7 +224,9 @@ EXPOSE 443
 
 #establish a healthcheck command so that docker might know the container's true state
 HEALTHCHECK --interval=2m --timeout=30s \
-  CMD curl -k -f https://127.0.0.1/idp/status || exit 1
+  CMD curl -k -f http://127.0.0.1:8080/ || exit 1
+#HEALTHCHECK --interval=2m --timeout=30s \
+#  CMD curl -k -f https://127.0.0.1/idp/status || exit 1
   
 
 # Start tomcat/crond
